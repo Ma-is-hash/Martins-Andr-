@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Receita de Sopa de feijão com pé de porco</title>
+</head>
+<body>
+    <header class="Cabeca">
+        <div class="logo">
+          <a href="Pagina_principal.html"><img style="border-radius: 100%" src="imagens/logo5.jpg" alt="logo" /></a>
+        </div>
+        <nav>
+          <ul class="lita_menu">
+            <li><a href="receitas.html">Receitas</a></li>
+            <li><a href="Adicionar.html">Adicionar Receitas</a></li>
+            <li><a href="cadastro.html">Fazer Login ou cadastro</a></li>
+          </ul>
+        </nav>
+        <div class="me-toggle">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+          </div>
+      </header><br><br><br><br><br><br>
+      <div class="tudo">
+<div class="receita">
+    <br><br><br><br><br>
+    <img src="imagens/Sopa de feijão com pé de porco.webp" alt="vagem salteada">
+    <h2>Receita de Sopa de feijão com pé de porco</h2><br>
+    <h4>Ingredientes</h4><br>
+    <p>
+        •	4 copos de feijão pequeno vermelho<br>
+        •	4 pés de porco picados pedaços grande fermentados em agua fervendo<br>
+        •	1 cabeça de alho inteira com casca<br>
+        •	1/2 cebola<br>
+        •	1 pimentão vermelho cortado em fatias<br>
+        •	Alho descascado a gosto<br>
+        •	Coentro agosto<br>
+        •	Sal e pimenta-do-reino a gosto<br>
+        •	1 cubo de caldo de carne<br>
+        •	Óleo para fritar os temperos
+    </p><br>
+        <h4>Modo de preparo</h4>
+        <p>
+            •	Cozinhe o feijão na pressão com o pé de porco, a cabeça de alho e água suficiente.<br>
+            •	Sempre deixo o feijão de molho antes de cozinhar.<br>
+            •	Em uma panela grande a parte, frite em óleo a cebola e alho picado, depois adicione pimentão, cubo de caldo de carne, coentro, sal e pimenta-do-reino.<br>
+            •	Após tudo refogado, adicione o feijão cozido com pé de porco e com toda a água, retirando somente a casca da cabeça de alho.<br>
+            •	Caso não tenha água suficiente, pode adicionar mais água e deixar ferver.<br>
+            •	Sirva em seguida<br>
+            •	Dica: Também pode adicionar outro temperos de preferência.<br>
+            Rendimento: 8 porções
+           </p><br>
+
+            <h5>Rendimento: 2 porções</h5><br>
+            <h5>Tempo de preparo: 40 minutos</h5>
+            <br><br>
+          </div>
+        </div>
+
+
+</div>
+
+
+
+<div class="curtidas">
+  <button onclick="curtir()">Curtir 👍</button>
+  <button onclick="naoCurtir()">Não Curtir 👎</button>
+  <p>Curtidas: <span id="curtidas">0</span></p>
+  <p>Não Curtidas: <span id="naoCurtidas">0</span></p>
+</div>
+<br><br>
+<button class="bootton" id="edit-button">Editar Receita</button>
+<br><br>
+
+
+<section id="edit-form" class="hidden">
+    <h2>Editar Receita</h2>
+    <form id="recipe-form">
+        <label for="recipe-image">Introduzir Imagem:</label>
+        <input type="file" id="recipe-image" name="recipe-image" required>
+        
+        <label for="recipe-name">Nome da Receita:</label>
+        <input type="text" id="recipe-name" name="recipe-name" required>
+        
+        <label for="recipe-ingredients">Ingredientes:</label>
+        <textarea id="recipe-ingredients" name="recipe-ingredients" rows="4" required></textarea>
+        
+        <label for="recipe-instructions">Modo de Preparo:</label>
+        <textarea id="recipe-instructions" name="recipe-instructions" rows="6" required></textarea>
+        
+        <label for="recipe-tips">Dicas:</label>
+        <textarea id="recipe-tips" name="recipe-tips" rows="4"></textarea>
+        
+        <label for="recipe-yield">Rendimento:</label>
+        <input type="text" id="recipe-yield" name="recipe-yield">
+        
+        <label for="recipe-preptime">Tempo de Preparo:</label>
+        <input type="text" id="recipe-preptime" name="recipe-preptime">
+        
+        <button type="submit" class="salvar_edicao">Salvar</button>
+        <button type="button" id="cancel-edit" class="hovercancel-edit">Cancelar</button>
+    </form>
+</section>
+
+<section class="comments" id="comments">
+    <h2>Comentários</h2>
+    <form id="comment-form">
+        <input type="text" id="name" placeholder="Seu nome" required><br><br>
+        <textarea id="comment" placeholder="Seu comentário" required></textarea><br>
+        <button type="submit">Comentar</button>
+    </form><br><br>
+    <ul id="comment-list">
+        <!-- Lista de comentários -->
+    </ul>
+  </section>
+
+
+   
+<br><br>
+
+
+
+
+<br><br>
+
+<div class="fim">
+  <img src="imagens/logo5.jpg" alt="Logo" />
+  <p>Um site com as melhores receitas que te permite explorar <br> e esperimentar diversos sabores de dar água na boca </p>
+  </p><br>
+</div>
+
+
+
+<!-- Script para comentario-->
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    const commentForm = document.getElementById('comment-form');
+    const commentList = document.getElementById('comment-list');
+
+    commentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const comment = document.getElementById('comment').value;
+
+        if (name.trim() === '' || comment.trim() === '') {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        const commentData = {
+            name: name,
+            comment: comment,
+            timestamp: new Date().toLocaleString()
+        };
+
+        // Adiciona o comentário à lista
+        addComment(commentData);
+
+        // Limpa o formulário
+        document.getElementById('name').value = '';
+        document.getElementById('comment').value = '';
+
+        // Salva os comentários no localStorage
+        saveComments();
+    });
+
+    // Função para adicionar um comentário à lista
+    function addComment(commentData) {
+        const commentItem = document.createElement('li');
+        commentItem.classList.add('comment');
+        commentItem.innerHTML = `
+            <strong>${commentData.name}</strong> disse:
+            <p>${commentData.comment}</p>
+            <span>${commentData.timestamp}</span>
+            <button class="delete-btn">Excluir</button>
+        `;
+        commentList.appendChild(commentItem);
+
+        // Adiciona evento de clique para o botão de exclusão
+        const deleteBtn = commentItem.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', function() {
+            deleteComment(commentItem);
+        });
+    }
+
+    // Função para deletar um comentário da lista e do localStorage
+    function deleteComment(commentItem) {
+        commentItem.remove();
+        saveComments(); // Salva novamente os comentários após a remoção
+    }
+
+    // Função para salvar os comentários no localStorage
+    function saveComments() {
+        const comments = document.querySelectorAll('.comment');
+        const commentsArray = Array.from(comments).map(comment => comment.innerHTML);
+        localStorage.setItem('comments', JSON.stringify(commentsArray));
+    }
+
+    // Função para carregar os comentários salvos do localStorage
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.forEach(commentHTML => {
+            const commentItem = document.createElement('li');
+            commentItem.classList.add('comment');
+            commentItem.innerHTML = commentHTML;
+            commentList.appendChild(commentItem);
+
+            // Adiciona evento de clique para o botão de exclusão
+            const deleteBtn = commentItem.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', function() {
+                deleteComment(commentItem);
+            });
+        });
+    }
+
+    // Carrega os comentários salvos ao carregar a página
+    loadComments();
+});
+
+ 
+
+
+
+
+
+
+  // Funções para manipular os botões de curtir e não curtir
+  function curtir() {
+      // Incrementa o contador de curtidas
+      let curtidas = parseInt(localStorage.getItem('curtidas')) || 0;
+      curtidas++;
+      localStorage.setItem('curtidas', curtidas);
+      atualizarCurtidas();
+  }
+  
+  function naoCurtir() {
+      // Incrementa o contador de não curtidas
+      let naoCurtidas = parseInt(localStorage.getItem('naoCurtidas')) || 0;
+      naoCurtidas++;
+      localStorage.setItem('naoCurtidas', naoCurtidas);
+      atualizarNaoCurtidas();
+  }
+  
+  // Função para atualizar a exibição de curtidas
+  function atualizarCurtidas() {
+      let curtidas = parseInt(localStorage.getItem('curtidas')) || 0;
+      document.getElementById('curtidas').textContent = curtidas;
+  }
+  
+  // Função para atualizar a exibição de não curtidas
+  function atualizarNaoCurtidas() {
+      let naoCurtidas = parseInt(localStorage.getItem('naoCurtidas')) || 0;
+      document.getElementById('naoCurtidas').textContent = naoCurtidas;
+  }
+  
+ 
+  
+
+
+
+
+
+
+  //Script para area de edição de receitas
+        // scripts.js
+document.addEventListener('DOMContentLoaded', function() {
+    const editButton = document.getElementById('edit-button');
+    const editForm = document.getElementById('edit-form');
+    const recipeContent = document.getElementById('recipe-content');
+    const cancelButton = document.getElementById('cancel-edit');
+    const recipeForm = document.getElementById('recipe-form');
+
+    editButton.addEventListener('click', function() {
+        // Mostra o formulário de edição e esconde o conteúdo da receita
+        editForm.classList.remove('hidden');
+        recipeContent.classList.add('hidden');
+
+    });
+
+    cancelButton.addEventListener('click', function() {
+        // Esconde o formulário de edição e mostra o conteúdo da receita
+        editForm.classList.add('hidden');
+        recipeContent.classList.remove('hidden');
+    });
+
+    recipeForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Atualiza os elementos da receita com os dados do formulário
+        const recipeImage = document.getElementById('recipe-image').value;
+        const recipeName = document.getElementById('recipe-name').value;
+        const recipeIngredients = document.getElementById('recipe-ingredients').value;
+        const recipeInstructions = document.getElementById('recipe-instructions').value;
+        const recipeTips = document.getElementById('recipe-tips').value;
+        const recipeYield = document.getElementById('recipe-yield').value;
+        const recipePrepTime = document.getElementById('recipe-preptime').value;
+
+        // Atualiza o conteúdo da receita
+        document.getElementById('recipe-image').src = recipeImage;
+        document.getElementById('recipe-name').textContent = recipeName;
+        // Atualize outros elementos da receita conforme necessário...
+
+        // Esconde o formulário de edição e mostra o conteúdo da receita
+        editForm.classList.add('hidden');
+        recipeContent.classList.remove('hidden');
+    });
+});
+
+let show = true;
+const menuContent = document.querySelector('.Cabeca');
+const menuToggle = menuContent.querySelector('.me-toggle');
+
+menuToggle.addEventListener('click', () => {
+  menuContent.classList.toggle('on', show);
+  show = !show;
+});
+  
+      </script>
+
+
+<script src="script.js"></script>
+</body>
+</html>

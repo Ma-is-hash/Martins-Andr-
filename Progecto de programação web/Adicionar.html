@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar receita</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Meu Livro de Receitas</title>
+</head>
+<body>
+    <header class="Cabeca">
+        <div class="logo">
+          <a href="Pagina_principal.html"><img style="border-radius: 100%" src="imagens/logo5.jpg" alt="logo" /></a>
+        </div>
+        <nav>
+          <ul class="lita_menu">
+            <li><a href="receitas.html">Receitas</a></li>
+            <li><a href="Adicionar.html">Adicionar Receitas</a></li>
+            <li><a href="cadastro.html">Fazer Login ou cadastro</a></li>
+          </ul>
+        </nav>
+        <div class="me-toggle">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+      </header>
+    <div class="tudo">
+      <div class="container">
+        <!-- Formulário para adicionar novas receitas -->
+        <br><br><br><br><br>
+        <h2>Adicionar Nova Receita</h2>
+        <h3>Carregue a imagem da receita aque</h3>
+          <input id="imagem" type="file" name="imagem">
+        <form id="nova-receita-form">
+          <label for="nome-receita">Nome da Receita:</label><br>
+          <input type="text" id="nome-receita" name="nome-receita" required><br><br>
+          <label for="ingredientes">Ingredientes:</label><br>
+          <textarea id="ingredientes" name="ingredientes" cols="70" rows="15" required></textarea><br><br>
+          <label for="minhaTextarea">Modo de Preparo:</label><br>
+          <textarea id="minhaTextarea" name="modo-preparo" cols="70" rows="15" required></textarea><br><br>
+          <label for="dica">Adicione uma dica (Opcional)</label><br>
+          <textarea name="Dica" id="Dica" cols="60" rows="10"></textarea><br><br>
+          <label for="Rendimento">Rendimento (Opcional)</label><br>
+          <input type="text" id="Rendimento" name="Rendimento"><br><br>
+          <label for="tempo-cozimento">Tempo de Cozimento:</label><br>
+          <input type="text" id="tempo-cozimento" name="tempo-cozimento" required><br><br>
+          <button type="submit">Adicionar Receita</button><br><br><br>
+      </form>
+     </div>
+    </div>
+     <div class="fim">
+        <img src="imagens/logo5.jpg" alt="Logo" />
+        <p>Um site com as melhores receitas que te permite explorar <br> e esperimentar diversos sabores de dar água na boca </p>
+        </p>
+      </div>
+      <script src="./script.js"></script> 
+</body>
+</html>
+</body>
+</html>
