@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="br-pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Estilo.css" />
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+    </script>
+    <title>Site de receitas de culinária</title>
+  </head>
+  <body>
+    <header class="Cabeca">
+      <div class="logo">
+        <a href="Pagina_principal.html"><img style="border-radius: 100%" src="imagens/logo5.jpg" alt="logo" /></a>
+      </div>
+      <nav>
+        <ul class="lita_menu">
+          <li><a href="receitas.html">Receitas</a></li>
+          <li><a href="Adicionar.html">Adicionar Receitas</a></li>
+          <li><a href="cadastro.html">Fazer Login ou cadastro</a></li>
+        </ul>
+      </nav>
+      <div class="me-toggle">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>
+    </header>
+
+   
+    <div class="aranjo">
+      <br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <section>
+      <div class="destaques_P">
+      <br><br>
+      <div class="text_P">
+        <p>
+          Seja muito bem-vindo ao nosso site de receitas! Aqui você encontrará um universo de sabores e
+           inspiração culinária para explorar. Desde pratos tradicionais até criações inovadoras, nossa 
+           comunidade está pronta para compartilhar dicas, truques e histórias deliciosas na cozinha. 
+           Sinta-se em casa para explorar, experimentar e compartilhar suas próprias receitas. Estamos
+            felizes em tê-lo conosco nessa jornada gastronômica. Aproveite cada descoberta e bom apetite!
+          </p>
+      </div>
+      <br /><br /><br />
+      <h2>Destaques</h2>
+      <div class="itens_destaque_P">
+          <div class="item">
+            <br><br><br><br>
+          <img src="imagens/arroz de forno.jpg" alt="arroz de forno" />
+          <div>
+            <h3>Receita de Arroz de forno cremoso</h3>
+            <h4>Ingredientes</h4>
+          </div>
+          <p>
+            • 1 lata de creme de leite 
+            • 4 colheres (sopa) de requeijão cremoso 
+            • 1 xícara (chá) de leite
+          </p>
+            <span><a href="Arroz de forno.html">Ver Mais...</a></span>
+          
+        </div>
+        
+        <div class="item">
+          <img src="imagens/Pé de porco.webp" alt="Pé de porco" />
+          <div>
+            <h3>Receita de Pé de porco</h3>
+            <h4>Ingredientes</h4>
+          </div>
+          <p>
+            • 10 pezinhos, partidos ao meio 
+            • 1 cabeça de alho 
+            • 3 folhas de louro 
+          </p>
+          <span><a href="Receita de Pé de porco.html">Ver mais...</a></span>
+        </div>
+      
+        <div class="item">
+          <img
+            src="imagens/Receita de Vagem salteada.webp"
+            alt="arroz de forno"
+          />
+          <div>
+            <h3>Receita de Vagem salteada</h3>
+            <h4>Ingredientes</h4>
+          </div>
+          <p>
+            • 10 pezinhos, partidos ao meio
+            • 1 cabeça de alho 
+            • 3 folhas de louro 
+          </p>
+          <span><a href="Vagem_salteada.html">Ver mais...</a></span>
+      </div>
+      </div>
+    </div>
+    </section>
+
+<!--Area que permite ao usuario fazer pesquisa por categoria e tempo de preparo-->
+<div class="filter">
+    <div class="filters">
+      <h2>Faça aque sua pesquisa para a lista a baixo</h2>
+      <label for="category">Categoria:</label>
+      <select id="category">
+          <option value="todas">Todas</option>
+          <option value="sobremesa">Sobremesa</option>
+          <option value="entrada">Entrada</option>
+          <option value="prato_principal">Prato Principal</option>
+          <option value="acompanhamento">Acompanhamento</option>
+          <option value="bebida">Bebida</option>
+          <option value="sopa">Sopa</option>
+          <option value="salada">Salada</option>
+          <option value="lanche">Lanche</option>
+      </select>
+
+      <label for="prep-time">Tempo de Preparo (min):</label>
+      <input type="number" id="prep-time" min="0">
+      
+      <button onclick="filterRecipes()">Pesquisar</button>
+  </div>
+
+  <div id="recipes-list">
+      <!-- Aqui serão listadas as receitas -->
+  </div>
+</div>
+
+    <div class="fim">
+      <img src="imagens/logo5.jpg" alt="Logo" />
+      <p>Um site com as melhores receitas que te permite explorar <br> e esperimentar diversos sabores de dar água na boca </p>
+      </p>
+    </div>
+     <!--Script para pesquisas-->
+      
+    <script>
+      //Dados de receitas 
+const recipes = [
+  { name: 'Arroz de forno', category: 'prato_principal', prepTime: 60, link: 'Arroz de forno.html' },
+  { name: 'Arroz de forno arisco', category: 'prato_principal', prepTime: 20, link: 'Arroz de forno arisco.html' },
+  { name: 'Vegetais salteados', category: 'prato_principal', prepTime: 60, link: 'Vagem_salteada.html' },
+  { name: 'Vagens Salteadas', category: 'Entrada', prepTime: 60, link: 'Vagem_salteada.html' },
+  { name: 'Pé de porco recheado com linguiça', category: 'prato_principal', prepTime: 60, link: 'Pé de porco recheado com linguiça.html' },
+  { name: 'Linguiça gratinada com batata', category: 'entrada', prepTime: 60, link: 'Arroz de forno cremoso saboroso.html' },
+  { name: 'Fusilli alla carbonara com abacate', category: 'entrada', prepTime: 60, link: 'Fusilli alla carbonara com abacate.html' },
+  { name: 'Espaguete a Putanesca', category: 'prato_principal', prepTime: 60, link: 'Espaguete a Putanesca.htm' },
+  { name: 'Espaguete a putanesca com atum', category: 'prato_principal', prepTime: 60, link: 'Espaguete a putanesca co atum.html' },
+  { name: 'Espaguete alla putanesca', category: 'prato_principal', prepTime: 60, link: 'Espaguete alla putanesca.html' },
+  { name: 'Espaguete alla putanesca adria', category: 'prato_principal', prepTime: 60, link: 'Espaguete alla putanesca adria.html' },
+  { name: 'Carnes salteada com legume', category: 'prato_principal', prepTime: 60, link: 'Carne salteada com legumaes.html' },
+  { name: 'Carnes avaianas', category: 'prato_principal', prepTime: 60, link: 'Carnes avaianas.html' },
+  { name: 'Arroz especialde de forno cremoso', category: 'prato_principal', prepTime: 60, link: 'Arroz especialde de forno cremoso.html' },
+  { name: 'Receita de pé de porco', category: 'prato_principal', prepTime: 60, link: 'Receita de Pé de porco.html' },
+  { name: 'Arroz de forno cremoso saboroso', category: 'prato_principal', prepTime: 60, link: 'Arroz de forno cremoso saboroso.html' },
+  { name: 'Batata recheada com linguiça', category: 'entrada', prepTime: 60, link: 'Pé de porco recheado com linguiça.html' },
+  { name: 'Legumes Salteados', category: 'entrada', prepTime: 60, link: 'Legumes Salteados.html' },
+  { name: 'Sopa de feijão com pé de porco', category: 'sobremesa', prepTime: 60, link: 'Sopa de feijão com pé de porco.html' },
+  { name: 'Tender avaianos', category: 'entrada', prepTime: 60, link: 'Tender avaianos.html' },
+  
+];
+
+
+
+
+
+// Função para renderizar as receitas na página
+function renderRecipes(recipesToShow) {
+  const recipesList = document.getElementById('recipes-list');
+  recipesList.innerHTML = '';
+
+  recipesToShow.forEach(recipe => {
+      const recipeElement = document.createElement('div');
+      recipeElement.classList.add('recipe');
+      recipeElement.innerHTML = `
+          
+
+
+<h2><a href="${recipe.link}" target="_blank">${recipe.name}</a></h2>
+
+
+          <p><strong>Categoria:</strong> ${recipe.category}</p>
+          <p><strong>Tempo de Preparo:</strong> ${recipe.prepTime} minutos</p>
+      `;
+      recipesList.appendChild(recipeElement);
+  });
+}
+
+// Função para filtrar as receitas com base nos filtros selecionados
+function filterRecipes() {
+  const selectedCategory = document.getElementById('category').value;
+  const prepTime = parseInt(document.getElementById('prep-time').value);
+
+  let filteredRecipes = recipes;
+
+  if (selectedCategory !== 'todas') {
+      filteredRecipes = filteredRecipes.filter(recipe => recipe.category === selectedCategory);
+  }
+
+  if (!isNaN(prepTime) && prepTime > 0) {
+      filteredRecipes = filteredRecipes.filter(recipe => recipe.prepTime <= prepTime);
+  }
+
+  renderRecipes(filteredRecipes);
+}
+
+// Exibe todas as receitas ao carregar a página inicialmente
+document.addEventListener('DOMContentLoaded', function() {
+  renderRecipes(recipes);
+});
+
+
+let show = true;
+const menuContent = document.querySelector('.Cabeca');
+const menuToggle = menuContent.querySelector('.me-toggle');
+
+menuToggle.addEventListener('click', () => {
+  menuContent.classList.toggle('on', show);
+  show = !show;
+});
+  </script>
+  </body>
+
+</html>
